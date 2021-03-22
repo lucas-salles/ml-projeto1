@@ -1,6 +1,6 @@
 import pandas as pd
 from dataSplit import dataSplit
-from treeDecision import treeAccuracy
+from decisionTree import decisionTreeAccuracy
 from knnImprove import knnImproveAccuracy
 from knn import knnAccuracy
 
@@ -22,23 +22,25 @@ cancerX_train, cancerX_test, cancerY_train, cancerY_test = dataSplit(
 ###############
 
 # Árvores de decisão para wine dataset com o criterion entropy e gini
-wineEntropyAccuracy = treeAccuracy(
-    wineX_train, wineX_test, wineY_train, wineY_test)
-wineGiniAccuracy = treeAccuracy(
+wineEntropyAccuracy = decisionTreeAccuracy(
+    wineX_train, wineX_test, wineY_train, wineY_test, "entropy")
+wineGiniAccuracy = decisionTreeAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, "gini")
 
 # Árvores de decisão para cancer dataset com o criterion entropy e gini
-cancerEntropyAccuracy = treeAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test)
-cancerGiniAccuracy = treeAccuracy(
+cancerEntropyAccuracy = decisionTreeAccuracy(
+    cancerX_train, cancerX_test, cancerY_train, cancerY_test, "entropy")
+cancerGiniAccuracy = decisionTreeAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, "gini")
 
-print("-------Árvores de Decisão-------")
-print("Wine tree entropy accuracy: {}%".format(wineEntropyAccuracy))
-print("Wine tree gini accuracy: {}%".format(wineGiniAccuracy))
+print("=-=-=-=-=-=-=-= Árvores de Decisão =-=-=-=-=-=-=-=")
 
-print("Cancer tree entropy accuracy: {}%".format(cancerEntropyAccuracy))
-print("Cancer tree gini accuracy: {}%".format(cancerGiniAccuracy))
+print("Wine decision tree with entropy: {}%".format(wineEntropyAccuracy))
+print("Wine decision tree with gini: {}%".format(wineGiniAccuracy))
+
+print("Cancer decision tree with entropy: {}%".format(cancerEntropyAccuracy))
+print("Cancer decision tree with gini: {}%".format(cancerGiniAccuracy))
+
 print()
 
 
@@ -48,68 +50,70 @@ print()
 #
 ###############
 
-# KNN com distâncias euclidean e manhattan e k = 3 para wine dataset
+# KNN com métricas euclidean e manhattan e k = 3 para wine dataset
 wineKnnEuclideanK3Accuracy = knnAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 3, "euclidean")
 wineKnnManhattanK3Accuracy = knnAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 3, "manhattan")
 
-# KNN com distâncias euclidean e manhattan e k = 7 para wine dataset
+# KNN com métricas euclidean e manhattan e k = 7 para wine dataset
 wineKnnEuclideanK7Accuracy = knnAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 7, "euclidean")
 wineKnnManhattanK7Accuracy = knnAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 7, "manhattan")
 
-# KNN com distâncias euclidean e manhattan e k = 10 para wine dataset
+# KNN com métricas euclidean e manhattan e k = 10 para wine dataset
 wineKnnEuclideanK10Accuracy = knnAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 10, "euclidean")
 wineKnnManhattanK10Accuracy = knnAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 10, "manhattan")
 
-# KNN com distâncias euclidean e manhattan e k = 3 para cancer dataset
+# KNN com métricas euclidean e manhattan e k = 3 para cancer dataset
 cancerKnnEuclideanK3Accuracy = knnAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, 3, "euclidean")
 cancerKnnManhattanK3Accuracy = knnAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, 3, "manhattan")
 
-# KNN com distâncias euclidean e manhattan e k = 7 para cancer dataset
+# KNN com métricas euclidean e manhattan e k = 7 para cancer dataset
 cancerKnnEuclideanK7Accuracy = knnAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, 7, "euclidean")
 cancerKnnManhattanK7Accuracy = knnAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, 7, "manhattan")
 
-# KNN com distâncias euclidean e manhattan e k = 10 para cancer dataset
+# KNN com métricas euclidean e manhattan e k = 10 para cancer dataset
 cancerKnnEuclideanK10Accuracy = knnAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, 10, "euclidean")
 cancerKnnManhattanK10Accuracy = knnAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, 10, "manhattan")
 
-print("-------KNN-------")
-print("Wine KNN with distance euclidean and K = 3 accuracy: {}%".format(
+print("=-=-=-=-=-=-=-= KNN =-=-=-=-=-=-=-=")
+
+print("Wine KNN with euclidean metric and K = 3: {}%".format(
     wineKnnEuclideanK3Accuracy))
-print("Wine KNN with distance manhattan and K = 3 accuracy: {}%".format(
+print("Wine KNN with manhattan metric and K = 3: {}%".format(
     wineKnnManhattanK3Accuracy))
-print("Wine KNN with distance euclidean and K = 7 accuracy: {}%".format(
+print("Wine KNN with euclidean metric and K = 7: {}%".format(
     wineKnnEuclideanK7Accuracy))
-print("Wine KNN with distance manhattan and K = 7 accuracy: {}%".format(
+print("Wine KNN with manhattan metric and K = 7: {}%".format(
     wineKnnManhattanK7Accuracy))
-print("Wine KNN with distance euclidean and K = 10 accuracy: {}%".format(
+print("Wine KNN with euclidean metric and K = 10: {}%".format(
     wineKnnEuclideanK10Accuracy))
-print("Wine KNN with distance manhattan and K = 10 accuracy: {}%".format(
+print("Wine KNN with manhattan metric and K = 10: {}%".format(
     wineKnnManhattanK10Accuracy))
 
-print("Cancer KNN with distance euclidean and K = 3 accuracy: {}%".format(
+print("Cancer KNN with euclidean metric and K = 3: {}%".format(
     cancerKnnEuclideanK3Accuracy))
-print("Cancer KNN with distance manhattan and K = 3 accuracy: {}%".format(
+print("Cancer KNN with manhattan metric and K = 3: {}%".format(
     cancerKnnManhattanK3Accuracy))
-print("Cancer KNN with distance euclidean and K = 7 accuracy: {}%".format(
+print("Cancer KNN with euclidean metric and K = 7: {}%".format(
     cancerKnnEuclideanK7Accuracy))
-print("Cancer KNN with distance manhattan and K = 7 accuracy: {}%".format(
+print("Cancer KNN with manhattan metric and K = 7: {}%".format(
     cancerKnnManhattanK7Accuracy))
-print("Cancer KNN with distance euclidean and K = 10 accuracy: {}%".format(
+print("Cancer KNN with euclidean metric and K = 10: {}%".format(
     cancerKnnEuclideanK10Accuracy))
-print("Cancer KNN with distance manhattan and K = 10 accuracy: {}%".format(
+print("Cancer KNN with manhattan metric and K = 10: {}%".format(
     cancerKnnManhattanK10Accuracy))
+
 print()
 
 
@@ -143,14 +147,15 @@ cancerKnnImproveK7Accuracy = knnImproveAccuracy(
 cancerKnnImproveK10Accuracy = knnImproveAccuracy(
     cancerX_train, cancerX_test, cancerY_train, cancerY_test, 10)
 
-print("-------KNN Improve-------")
-print("Wine KNN Improve with K = 3 accuracy: {}%".format(wineKnnImproveK3Accuracy))
-print("Wine KNN Improve with K = 5 accuracy: {}%".format(wineKnnImproveK7Accuracy))
-print("Wine KNN Improve with K = 9 accuracy: {}%".format(wineKnnImproveK10Accuracy))
+print("=-=-=-=-=-=-=-= KNN Improve =-=-=-=-=-=-=-=")
 
-print("Cancer KNN Improve with K = 3 accuracy: {}%".format(
+print("Wine KNN Improve with K = 3: {}%".format(wineKnnImproveK3Accuracy))
+print("Wine KNN Improve with K = 7: {}%".format(wineKnnImproveK7Accuracy))
+print("Wine KNN Improve with K = 10: {}%".format(wineKnnImproveK10Accuracy))
+
+print("Cancer KNN Improve with K = 3: {}%".format(
     cancerKnnImproveK3Accuracy))
-print("Cancer KNN Improve with K = 5 accuracy: {}%".format(
+print("Cancer KNN Improve with K = 7: {}%".format(
     cancerKnnImproveK7Accuracy))
-print("Cancer KNN Improve with K = 9 accuracy: {}%".format(
+print("Cancer KNN Improve with K = 10: {}%".format(
     cancerKnnImproveK10Accuracy))

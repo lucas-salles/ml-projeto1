@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 
-def treeAccuracy(X_train, X_test, y_train, y_test, criterion="entropy"):
+def decisionTreeAccuracy(X_train, X_test, y_train, y_test, criterion="entropy"):
     # Treinamento da Árvore de Decisão
     model = tree.DecisionTreeClassifier(criterion=criterion)
     model = model.fit(X_train, y_train)

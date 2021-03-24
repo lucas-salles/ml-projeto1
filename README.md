@@ -31,6 +31,6 @@ O conjunto de dados foi divido da seguinte forma: 80% para treinamento e 20% par
 
 ## Relatório
 
-Ao final da execução é exibido os resultados (taxas de acerto) de todos os algoritmos.
+Ao final da execução é exibido os resultados (taxas de acerto) de todos os algoritmos como na imagem abaixo.
 
 ![Resultado](img/resultado.png)

@@ -17,7 +17,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 Foram escolhidas duas bases de dados do [UCI](https://archive.ics.uci.edu/ml/index.php) para a comparação entre os algoritmos.
 
 - [Wine Data Set](https://archive.ics.uci.edu/ml/datasets/Wine): Possui dados que são resultados de uma análise química de vinhos cultivados na mesma região na Itália, mas derivados de três cultivares diferentes;
-- [Glass Identification Data Set](https://archive.ics.uci.edu/ml/datasets/Glass+Identification): Do Serviço de Ciência Forense dos EUA; 6 tipos de vidro; definido em termos de seu teor de óxido (ou seja, Na, Fe, K, etc).
+- [Glass Identification Data Set](https://archive.ics.uci.edu/ml/datasets/Glass+Identification): Possui dados do Serviço de Ciência Forense dos EUA; 6 tipos de vidro; definido em termos de seu teor de óxido (ou seja, Na, Fe, K, etc).
 
 ## Algoritmos Testados
 

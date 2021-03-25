@@ -5,14 +5,14 @@ from knnImprove import knnImproveAccuracy
 from knn import knnAccuracy
 
 wineDataset = pd.read_csv("datasets/wine.data", header=None)
-cancerDataset = pd.read_csv("datasets/cancer.csv", header=None)
+glassDataset = pd.read_csv("datasets/glass.data", header=None)
 
 # X_train, X_test, y_train, y_test de wine dataset
 wineX_train, wineX_test, wineY_train, wineY_test = dataSplit(wineDataset)
 
-# X_train, X_test, y_train, y_test de cancer dataset
-cancerX_train, cancerX_test, cancerY_train, cancerY_test = dataSplit(
-    cancerDataset)
+# X_train, X_test, y_train, y_test de glass dataset
+glassX_train, glassX_test, glassY_train, glassY_test = dataSplit(
+    glassDataset)
 
 
 ###############
@@ -27,19 +27,19 @@ wineEntropyAccuracy = decisionTreeAccuracy(
 wineGiniAccuracy = decisionTreeAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, "gini")
 
-# Árvores de decisão para cancer dataset com o criterion entropy e gini
-cancerEntropyAccuracy = decisionTreeAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, "entropy")
-cancerGiniAccuracy = decisionTreeAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, "gini")
+# Árvores de decisão para glass dataset com o criterion entropy e gini
+glassEntropyAccuracy = decisionTreeAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, "entropy")
+glassGiniAccuracy = decisionTreeAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, "gini")
 
 print("=-=-=-=-=-=-=-= Árvores de Decisão =-=-=-=-=-=-=-=")
 
 print("Wine decision tree with entropy: {}%".format(wineEntropyAccuracy))
 print("Wine decision tree with gini: {}%".format(wineGiniAccuracy))
 
-print("Cancer decision tree with entropy: {}%".format(cancerEntropyAccuracy))
-print("Cancer decision tree with gini: {}%".format(cancerGiniAccuracy))
+print("Glass decision tree with entropy: {}%".format(glassEntropyAccuracy))
+print("Glass decision tree with gini: {}%".format(glassGiniAccuracy))
 
 print()
 
@@ -68,23 +68,23 @@ wineKnnEuclideanK10Accuracy = knnAccuracy(
 wineKnnManhattanK10Accuracy = knnAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 10, "manhattan")
 
-# KNN com métricas euclidean e manhattan e k = 3 para cancer dataset
-cancerKnnEuclideanK3Accuracy = knnAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 3, "euclidean")
-cancerKnnManhattanK3Accuracy = knnAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 3, "manhattan")
+# KNN com métricas euclidean e manhattan e k = 3 para glass dataset
+glassKnnEuclideanK3Accuracy = knnAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 3, "euclidean")
+glassKnnManhattanK3Accuracy = knnAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 3, "manhattan")
 
-# KNN com métricas euclidean e manhattan e k = 7 para cancer dataset
-cancerKnnEuclideanK7Accuracy = knnAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 7, "euclidean")
-cancerKnnManhattanK7Accuracy = knnAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 7, "manhattan")
+# KNN com métricas euclidean e manhattan e k = 7 para glass dataset
+glassKnnEuclideanK7Accuracy = knnAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 7, "euclidean")
+glassKnnManhattanK7Accuracy = knnAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 7, "manhattan")
 
-# KNN com métricas euclidean e manhattan e k = 10 para cancer dataset
-cancerKnnEuclideanK10Accuracy = knnAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 10, "euclidean")
-cancerKnnManhattanK10Accuracy = knnAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 10, "manhattan")
+# KNN com métricas euclidean e manhattan e k = 10 para glass dataset
+glassKnnEuclideanK10Accuracy = knnAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 10, "euclidean")
+glassKnnManhattanK10Accuracy = knnAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 10, "manhattan")
 
 print("=-=-=-=-=-=-=-= KNN =-=-=-=-=-=-=-=")
 
@@ -101,18 +101,18 @@ print("Wine KNN with euclidean metric and K = 10: {}%".format(
 print("Wine KNN with manhattan metric and K = 10: {}%".format(
     wineKnnManhattanK10Accuracy))
 
-print("Cancer KNN with euclidean metric and K = 3: {}%".format(
-    cancerKnnEuclideanK3Accuracy))
-print("Cancer KNN with manhattan metric and K = 3: {}%".format(
-    cancerKnnManhattanK3Accuracy))
-print("Cancer KNN with euclidean metric and K = 7: {}%".format(
-    cancerKnnEuclideanK7Accuracy))
-print("Cancer KNN with manhattan metric and K = 7: {}%".format(
-    cancerKnnManhattanK7Accuracy))
-print("Cancer KNN with euclidean metric and K = 10: {}%".format(
-    cancerKnnEuclideanK10Accuracy))
-print("Cancer KNN with manhattan metric and K = 10: {}%".format(
-    cancerKnnManhattanK10Accuracy))
+print("Glass KNN with euclidean metric and K = 3: {}%".format(
+    glassKnnEuclideanK3Accuracy))
+print("Glass KNN with manhattan metric and K = 3: {}%".format(
+    glassKnnManhattanK3Accuracy))
+print("Glass KNN with euclidean metric and K = 7: {}%".format(
+    glassKnnEuclideanK7Accuracy))
+print("Glass KNN with manhattan metric and K = 7: {}%".format(
+    glassKnnManhattanK7Accuracy))
+print("Glass KNN with euclidean metric and K = 10: {}%".format(
+    glassKnnEuclideanK10Accuracy))
+print("Glass KNN with manhattan metric and K = 10: {}%".format(
+    glassKnnManhattanK10Accuracy))
 
 print()
 
@@ -135,17 +135,17 @@ wineKnnImproveK7Accuracy = knnImproveAccuracy(
 wineKnnImproveK10Accuracy = knnImproveAccuracy(
     wineX_train, wineX_test, wineY_train, wineY_test, 10)
 
-# KNN Improve com k = 3 para cancer dataset
-cancerKnnImproveK3Accuracy = knnImproveAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 3)
+# KNN Improve com k = 3 para glass dataset
+glassKnnImproveK3Accuracy = knnImproveAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 3)
 
-# KNN Improve com k = 7 para cancer dataset
-cancerKnnImproveK7Accuracy = knnImproveAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 7)
+# KNN Improve com k = 7 para glass dataset
+glassKnnImproveK7Accuracy = knnImproveAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 7)
 
-# KNN Improve com k = 10 para cancer dataset
-cancerKnnImproveK10Accuracy = knnImproveAccuracy(
-    cancerX_train, cancerX_test, cancerY_train, cancerY_test, 10)
+# KNN Improve com k = 10 para glass dataset
+glassKnnImproveK10Accuracy = knnImproveAccuracy(
+    glassX_train, glassX_test, glassY_train, glassY_test, 10)
 
 print("=-=-=-=-=-=-=-= KNN Improve =-=-=-=-=-=-=-=")
 
@@ -153,9 +153,9 @@ print("Wine KNN Improve with K = 3: {}%".format(wineKnnImproveK3Accuracy))
 print("Wine KNN Improve with K = 7: {}%".format(wineKnnImproveK7Accuracy))
 print("Wine KNN Improve with K = 10: {}%".format(wineKnnImproveK10Accuracy))
 
-print("Cancer KNN Improve with K = 3: {}%".format(
-    cancerKnnImproveK3Accuracy))
-print("Cancer KNN Improve with K = 7: {}%".format(
-    cancerKnnImproveK7Accuracy))
-print("Cancer KNN Improve with K = 10: {}%".format(
-    cancerKnnImproveK10Accuracy))
+print("Glass KNN Improve with K = 3: {}%".format(
+    glassKnnImproveK3Accuracy))
+print("Glass KNN Improve with K = 7: {}%".format(
+    glassKnnImproveK7Accuracy))
+print("Glass KNN Improve with K = 10: {}%".format(
+    glassKnnImproveK10Accuracy))

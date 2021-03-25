@@ -17,7 +17,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 Foram escolhidas duas bases de dados do [UCI](https://archive.ics.uci.edu/ml/index.php) para a comparação entre os algoritmos.
 
 - [Wine Data Set](https://archive.ics.uci.edu/ml/datasets/Wine): Possui dados que são resultados de uma análise química de vinhos cultivados na mesma região na Itália, mas derivados de três cultivares diferentes;
-- [Breast Cancer Coimbra Data Set](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Coimbra): Possui dados sobre câncer de mama com 10 preditores, todos quantitativos e uma variável dependente binária, indicando a presença ou ausência de câncer de mama.
+- [Glass Identification Data Set](https://archive.ics.uci.edu/ml/datasets/Glass+Identification): Do Serviço de Ciência Forense dos EUA; 6 tipos de vidro; definido em termos de seu teor de óxido (ou seja, Na, Fe, K, etc).
 
 ## Algoritmos Testados
 
@@ -33,4 +33,4 @@ O conjunto de dados foi divido da seguinte forma: 80% para treinamento e 20% par
 
 Ao final da execução é exibido os resultados (taxas de acerto) de todos os algoritmos como na imagem abaixo.
 
-![Resultado](img/resultado.png)
+![Resultado](screenshots/resultado.png)
